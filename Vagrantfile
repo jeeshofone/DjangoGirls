@@ -80,6 +80,12 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_agent=true
   config.ssh.forward_x11=true
 
+  # This box uses the CodeClimate CLI to enable testing during writing code
+  # Using install/run script based on instructions here:
+  #  https://github.com/codeclimate/codeclimate#usage
+  config.vm.provision "docker",
+    images: ["codeclimate/codeclimate"]
+
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
@@ -98,6 +104,10 @@ apt-get install -y python3
 apt-get install -y python3-pip
 apt-get install -y python3-venv
 snap install atom --classic
+
+# install CodeClimate CLI
+curl -L https://github.com/codeclimate/codeclimate/archive/master.tar.gz | tar xvz
+cd codeclimate-* && sudo make install
 SCRIPT
 
   config.vm.provision "shell" do |s|
