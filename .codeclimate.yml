@@ -1,4 +1,7 @@
 version: "2"         # required to adjust maintainability checks
+exclude_patterns:
+- "myvenv/"
+- "**/migrations/"
 checks:
   argument-count:
     config:
@@ -26,4 +29,16 @@ checks:
       threshold: 4
 plugins:
   shellcheck:
+    enabled: true
+  pep8:
+    enabled: true
+  csslint:
+    enabled: true
+  markdownlint:
+    enabled: true
+    issue_override:
+      severity: minor
+  fixme:
+    enabled: true
+  rubocop:
     enabled: true
