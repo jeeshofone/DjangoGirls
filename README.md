@@ -16,10 +16,11 @@ After installing VirtualBox, add VirtualBox to the Windows path. One way to do t
 [Environment]::SetEnvironmentVariable("Path", "C:/Program Files/Oracle/VirtualBox;" + $env:Path, "Machine")
 ```
 
-After installing Vagrant make sure to install the Vagrant VirtualBox Guest manager:
+After installing Vagrant make sure to install the plugins Vagrant VirtualBox Guest Manager and Vagrant Disk Size Manager:
 
 ```sh
 vagrant plugin install vagrant-vbguest
+vagrant plugin install vagrant-disksize
 ```
 
 ### Using the Vagrant private key
@@ -27,6 +28,7 @@ vagrant plugin install vagrant-vbguest
 Vagrant generates a private key that can be used to authenticate an SSH session to the box. The default format of the private key is not compatible with the Windows PuTTY key format. A reference to generate theh PuTTY key is at: [https://devops.profitbricks.com/tutorials/use-ssh-keys-with-putty-on-windows/](https://devops.profitbricks.com/tutorials/use-ssh-keys-with-putty-on-windows/)
 
 A summary of the tutorial is:
+
 1. Install Putty [https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 2. Click `Conversions` from the PuTTY Key Generator menu and select `Import key`.
 3. Navigate to the OpenSSH private key and click `Open`. The private key is at `.vagrant\machines\default\virtualbox\id_rsa`.
