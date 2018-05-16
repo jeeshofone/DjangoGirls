@@ -13,8 +13,8 @@ apt-get install -y python3-venv
 snap install atom --classic
 
 # install CodeClimate CLI
-curl -L --anyauth https://github.com/codeclimate/codeclimate/archive/master.tar.gz | tar xvz
+curl -fsSL --anyauth https://github.com/codeclimate/codeclimate/archive/master.tar.gz | tar xvz
 cd codeclimate-* && sudo make install
 
 # install Krypton for authenticating SSH and GPG
-curl -L --anyauth https://krypt.co/kr | sh
+curl -fsSL --anyauth https://krypt.co/kr | sh
