@@ -1,0 +1,26 @@
+FROM ubuntu:xenial-20200326
+
+#RUN apt-get update 
+#RUN apt-get install -y vim-gtk #this is a graphical app we dont need
+#RUN apt-get install -y meld #this is a graphical app we dont need
+RUN apt-get update ; apt-get install -y git gnupg2 python3 python3-pip python3-venv
+
+# add our requirements 
+COPY ./requirements.txt /app/
+
+#when entering the container where do we want to start our relative path at?
+WORKDIR /app
+
+# make a virtualenv
+# no DONT - you're already in a container environment - there is no need to add another one!
+#RUN python3 -m venv app
+#RUN /bin/bash -c "source app/bin/activate"
+
+#install environment requirements
+RUN pip3 install -r requirements.txt
+
+
+# for more complex app development we might take this out and make a multi-part build
+# add our app 
+COPY . /app/
+

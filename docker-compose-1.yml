@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+    mydjangoblog:
+        image: 'djangoproject-base:4'
+        ports:
+            - '8000:8000'
+        volumes:
+            - '~/Documents/GitHub/DjangoGirls:/app/'
+        

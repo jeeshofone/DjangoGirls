@@ -1,0 +1,10 @@
+FROM python:alpine3.11
+
+COPY ./requirements-alpine.txt /app/requirements.txt
+
+WORKDIR /app
+
+#install environment requirements
+RUN pip3 install -r /app/requirements.txt
+
+ENTRYPOINT ["python3", "manage.py", "runserver", "0.0.0.0:8000"]

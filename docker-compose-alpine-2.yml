@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+    mydjangoblog:
+        build:
+            context: ./
+            dockerfile: Dockerfile.alpine.1
+       # image: 'djangoproject-alpine:1'
+        ports:
+            - '8000:8000'
+        volumes:
+            - '~/Documents/GitHub/DjangoGirls:/app/'
+    
